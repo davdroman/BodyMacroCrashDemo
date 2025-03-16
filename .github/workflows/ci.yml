@@ -24,9 +24,9 @@ jobs:
         include:
           - os: macos-15
             xcode: "16.0"
-          - os: macos-15
+          - os: macos-14
             xcode: "16.1"
-          - os: macos-15
+          - os: macos-14
             xcode: "16.2"
     steps:
       - name: Git Checkout
