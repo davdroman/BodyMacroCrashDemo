@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - "**"
+  schedule:
+    - cron: "3 3 * * 2" # 3:03 AM, every Tuesday
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: Xcode ${{ matrix.xcode }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-15
+            xcode: "16.0"
+          - os: macos-15
+            xcode: "16.1"
+          - os: macos-15
+            xcode: "16.2"
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up pkgx environment
+        uses: pkgxdev/setup@v3
+        with:
+          +: xcodes
+
+      - name: Select Xcode version
+        run: sudo xcodes select ${{ matrix.xcode }}
+
+      - name: Clean
+        run: swift package clean
+
+      - name: Build
+        run: swift build -c debug
