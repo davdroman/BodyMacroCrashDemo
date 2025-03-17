@@ -5,7 +5,7 @@ import PackageDescription
 import CompilerPluginSupport
 
 let package = Package(
-	name: "BodyMacroCrashDemo",
+	name: "BodyMacroErrorDemo",
 	platforms: [
 		.macOS(.v10_15),
 		.iOS(.v13),
@@ -14,15 +14,15 @@ let package = Package(
 	],
 	products: [
 		.library(
-			name: "BodyMacroCrashDemo",
-			targets: ["BodyMacroCrashDemo"]
+			name: "BodyMacroErrorDemo",
+			targets: ["BodyMacroErrorDemo"]
 		),
 	],
 	dependencies: [
 		.package(url: "https://github.com/swiftlang/swift-syntax", "509.0.0"..<"602.0.0"),
 	],
 	targets: [
-		.target(name: "BodyMacroCrashDemo", dependencies: ["BodyMacro",]),
+		.target(name: "BodyMacroErrorDemo", dependencies: ["BodyMacro",]),
 
 		.macro(
 			name: "BodyMacro",
