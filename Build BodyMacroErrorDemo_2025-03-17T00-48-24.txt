@@ -12,15 +12,18 @@ SwiftCompile normal arm64 /Users/davdroman/Developer/davdroman/BodyMacroErrorDem
     cd /Users/davdroman/Developer/davdroman/BodyMacroErrorDemo/.swiftpm/xcode
     
 
-@__swiftmacro_18BodyMacroErrorDemo0D0C4demo04NoOpaB0fMb_.swift:2:5: error: type of expression is ambiguous without a type annotation
-    Task { [weak self] in // removing [weak self] makes it compile! 🤯
-/Users/davdroman/Developer/davdroman/BodyMacroErrorDemo/Sources/BodyMacroErrorDemo/Demo.swift:5:2: note: in expansion of macro 'NoOpBodyMacro' on instance method 'demo()' here
-        @NoOpBodyMacro // removing this makes it compile! 🤯
-/Users/davdroman/Developer/davdroman/BodyMacroErrorDemo/Sources/BodyMacroErrorDemo/Demo.swift:5:2: note: in expansion of macro 'NoOpBodyMacro' on instance method 'demo()' here
-        @NoOpBodyMacro // removing this makes it compile! 🤯
+@__swiftmacro_18BodyMacroErrorDemo0D0C4demo04NoOpaB0fMb_.swift:2:23: error: type of expression is ambiguous without a type annotation
+    let doSomething = { [weak self] in
+                      ^~~~~~~~~~~~~~~~
+/Users/davdroman/Developer/davdroman/BodyMacroErrorDemo/Sources/BodyMacroErrorDemo/Demo.swift:7:2: note: in expansion of macro 'NoOpBodyMacro' on instance method 'demo()' here
+        @NoOpBodyMacro
+        ^~~~~~~~~~~~~~
+/Users/davdroman/Developer/davdroman/BodyMacroErrorDemo/Sources/BodyMacroErrorDemo/Demo.swift:7:2: note: in expansion of macro 'NoOpBodyMacro' on instance method 'demo()' here
+        @NoOpBodyMacro
+        ^~~~~~~~~~~~~~
 
-/var/folders/zg/bjgs0kx53v53g3pbwgpbqvkm0000gn/T/swift-generated-sources/@__swiftmacro_18BodyMacroErrorDemo0D0C4demo04NoOpaB0fMb_.swift:2:5: Type of expression is ambiguous without a type annotation
+/var/folders/zg/bjgs0kx53v53g3pbwgpbqvkm0000gn/T/swift-generated-sources/@__swiftmacro_18BodyMacroErrorDemo0D0C4demo04NoOpaB0fMb_.swift:2:23: Type of expression is ambiguous without a type annotation
 
 
 
-Build failed    17/03/2025, 00:42    14.4 seconds
+Build failed    17/03/2025, 00:48    0.5 seconds
